@@ -18,7 +18,7 @@ function adicionarAmigo(){
 
     let resultado = document.getElementById("resultado");
     resultado.innerHTML = ''
-    
+
     atualizarLista()
     console.log("Lista de Amigos: ", amigos)
 
@@ -31,7 +31,7 @@ function atualizarLista(){
 
     for(let i = 0; i < amigos.length; i++){
         let linhaNome = document.createElement("li");
-        linhaNome.textContent =  `Nome ${i+1}: ${amigos[i]}`;
+        linhaNome.textContent =  ` ${i+1}: ${amigos[i]}`;
         listaHtml.appendChild(linhaNome)
     }
 }
@@ -62,29 +62,8 @@ function sortearAmigo(){
     let limparLista = document.getElementById("listaAmigos");
     limparLista.innerHTML=''
     amigos = []
-    dispararFogos()
+
 }
-
- function dispararFogos() {
-  const duration = 5 * 1000;
-  const animationEnd = Date.now() + duration;
-  const defaults = { startVelocity: 30, spread: 360, ticks: 60, zIndex: 0, colors: ['#ff0000', '#00ff00', '#0000ff', '#ffff00', '#ff00ff', '#00ffff'] };
-
-  function randomInRange(min, max) {
-      return Math.random() * (max - min) + min;
-  }
-
-  const interval = setInterval(function() {
-      const timeLeft = animationEnd - Date.now();
-
-      if (timeLeft <= 0) {
-          return clearInterval(interval);
-      }
-
-      const particleCount = 200 * (timeLeft / duration);
-      confetti(Object.assign({}, defaults, { particleCount, origin: { x: Math.random(), y: Math.random() - 0.2 } }));
-  }, 100);
-} 
 
 function resetar() {
     let listaHtml = document.getElementById("listaAmigos");
